@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "build")
 @Data
 
 @Entity
@@ -20,25 +20,26 @@ public class Student {
     @Column(name = "student_id")
     private Long studentId;
 
-    @Column(name = "first_name", nullable = false, length = 50)
+    @Column(name = "first_name", nullable = false, length = 60)
     private String firstName;
     @Column(name = "middle_name", nullable = false, length = 50)
     private String middleName;
-    @Column(name = "last_name", nullable = false, length = 60)
+    @Column(name = "last_name", nullable = false, length = 50)
     private String lastName;
-    @Column(name = "full_name", nullable = false, length = 150)
-    private String fullName;
+    @Column(name = "email", length = 50, unique = true)
+    private String email;
     @Column(name = "age", nullable = false)
-    private short age;
+    private int age;
     @Column(name = "gender", nullable = false)
     private String gender;
+    @Column(name = "nationality")
+    public String nationality;
     @Column(name = "location", nullable = false)
     private String location;
     @Column(name = "birth_date", nullable = false)
-    private String birthDate;
-    @Column(name = "phone_number", nullable = false, length = 11)
+    private Date birthDate;
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
-    @Column(name = "is_active", nullable = false)
-    private Boolean isActive;
+
 
 }
